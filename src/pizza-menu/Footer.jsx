@@ -8,6 +8,6 @@ export default function Footer() {
   //   if (hour >= openHour && hour <= closeHour) alert("We are currently open");
   //   else alert("Sorry We are closed");
   return (
-    <footer>{new Date().toLocaleTimeString()} We're currently OPEN</footer>
+    <footer className="footer">{new Date().toLocaleTimeString()} We're currently OPEN</footer>
   );
 }
