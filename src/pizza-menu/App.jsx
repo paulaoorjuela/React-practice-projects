@@ -2,7 +2,6 @@ import Pizza from "./Pizza";
 import Footer from "./Footer";
 import Header from "./Header";
 import Menu from "./Menu";
-import "../../public/data";
 
 export default function App() {
   return (
