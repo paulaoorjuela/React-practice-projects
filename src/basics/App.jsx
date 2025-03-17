@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 import Slot from "./Slot";
 import ColorGrid from "./ColorGrid";
 import ScoreKeeper from "./ScoreKeeper";
