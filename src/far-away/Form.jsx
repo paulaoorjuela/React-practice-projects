@@ -8,7 +8,6 @@ export default function Form({onAddItems}) {
         e.preventDefault()
         if(!description) return
         const newItem = {description, quantity, packed: false, id: Date.now()}
-        console.log(newItem)
         onAddItems(newItem)
         setDescription('')
         setQuantity(1)
