@@ -21,11 +21,16 @@ export default function App() {
         setItems((items) => items.map((item) => item.id === id? {...item, packed:!item.packed} : item))
     }
 
+    function handleClearList(){
+        const confirm = window.confirm('Are you sure you want to clear the list?')
+        if(confirm) setItems([])
+    }
+
     return(
         <main className='app'>
         <Logo />
         <Form onAddItems={handleAddItems}/>
-        <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem}/>
+        <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} onClearList={handleClearList}/>
         <Stats items={items}/>
         </main>
     )
