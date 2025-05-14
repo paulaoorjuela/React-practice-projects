@@ -8,7 +8,9 @@ import { createRoot } from 'react-dom/client'
 // import App from './date-record/App.jsx'
 // import App from './text-expander/App.jsx'
 // import App from './how-react-works/App.jsx'
-import App from './currency-converter/App.jsx'
+// import App from './currency-converter/App.jsx'
+import App from './geolocate/App.jsx'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
