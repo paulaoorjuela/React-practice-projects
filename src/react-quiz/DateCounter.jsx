@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 
 const InitialState = { count: 0, step: 1 };
+
 function reducer(state, action) {
   console.log(state, action);
 
