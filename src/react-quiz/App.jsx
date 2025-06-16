@@ -2,6 +2,7 @@ import { useEffect, useReducer } from "react";
 import Header from "./Header";
 import Loader from "./Loader"
 import Error from "./Error"
+import Question from "./Question"
 
 import "./index.css";
 import Main from "./Main";
@@ -15,6 +16,7 @@ function reducer(state, action){
     switch(action.type){
         case 'dataRecived' : return { ...state, questions: action.payload, status: 'ready'}
         case 'dataError' : return{ ...state, status: 'error'}
+        case 'startQuiz' : return { ...state, status: 'active'}
         default: throw new Error("Unknown action type"); 
     }
 
@@ -39,7 +41,8 @@ export default function App() {
             <Main>
                 {status === 'loading' && <Loader />}
                 {status === 'error' && <Error />}
-                {status === 'ready' && <StartScreen numQuestions={numQuestions}/>}
+                {status === 'ready' && <StartScreen numQuestions={numQuestions} dispatch={dispatch}/>}
+                {status === 'active' && <Question/>}
             </Main>
         </div>
     );
