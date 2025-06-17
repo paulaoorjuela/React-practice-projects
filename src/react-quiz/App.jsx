@@ -8,13 +8,15 @@ import Main from "./Main";
 import StartScreen from "./components/StartScreen";
 import NextButton from "./components/NextButton";
 import Progress from "./components/Progress";
+import FinishScreen from "./components/FinishScreen";
 
 const InitialState = {
     questions:[],
     status: 'loading', // 'loading', 'error', 'ready', 'active', 'finished'
     index: 0,
     answer: null,
-    points: 0
+    points: 0,
+    highscore : 0
 }
 function reducer(state, action){
     switch(action.type){
@@ -27,13 +29,15 @@ function reducer(state, action){
                 state.points + currentQuestion.points : state.points
             }
         case 'nextQuestion' : return {...state, index : state.index + 1, answer : null}
+        case 'finish' : 
+            return {...state, status: 'finished', highscore: state.points > state.highscore ? state.points : state.highscore}
         default: throw new Error("Unknown action type"); 
     }
 
 }
 
 export default function App() {
-    const [{ questions, status, index, answer, points }, dispatch] = useReducer(reducer, InitialState)
+    const [{ questions, status, index, answer, points, highscore }, dispatch] = useReducer(reducer, InitialState)
 
     const numQuestions = questions.length;
     const possiblePoints = questions.reduce((prev, curr) => prev + curr.points, 0);
@@ -58,9 +62,10 @@ export default function App() {
                 <>
                     <Progress index={index} numQuestions={numQuestions} points={points} possiblePoints={possiblePoints} answer={answer} />
                     <Question question={questions[index]} dispatch={dispatch} answer={answer}/>
-                    <NextButton dispatch={dispatch} answer={answer}/>
+                    <NextButton dispatch={dispatch} answer={answer} index={index} numQuestions={numQuestions}/>
                 </>
                 }
+                {status ==='finished' && <FinishScreen points={points} possiblePoints={possiblePoints} highscore={highscore}/>}
             </Main>
         </div>
     );
