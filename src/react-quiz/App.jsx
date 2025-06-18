@@ -31,6 +31,7 @@ function reducer(state, action){
         case 'nextQuestion' : return {...state, index : state.index + 1, answer : null}
         case 'finish' : 
             return {...state, status: 'finished', highscore: state.points > state.highscore ? state.points : state.highscore}
+        case 'restart' : return {...InitialState, questions: state.questions, status: 'ready'}
         default: throw new Error("Unknown action type"); 
     }
 
@@ -65,7 +66,7 @@ export default function App() {
                     <NextButton dispatch={dispatch} answer={answer} index={index} numQuestions={numQuestions}/>
                 </>
                 }
-                {status ==='finished' && <FinishScreen points={points} possiblePoints={possiblePoints} highscore={highscore}/>}
+                {status ==='finished' && <FinishScreen points={points} possiblePoints={possiblePoints} highscore={highscore} dispatch={dispatch}/>}
             </Main>
         </div>
     );
