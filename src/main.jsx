@@ -10,7 +10,9 @@ import { createRoot } from 'react-dom/client'
 // import App from './how-react-works/App.jsx'
 // import App from './currency-converter/App.jsx'
 // import App from './geolocate/App.jsx'
-import App from './react-quiz/App.jsx'
+// import App from './react-quiz/App.jsx'
+import App from './useReducer-bank/App.jsx'
+
 
 
 
