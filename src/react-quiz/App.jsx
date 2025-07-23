@@ -29,10 +29,10 @@ function reducer(state, action){
         case 'dataError' : return{ ...state, status: 'error'}
         case 'startQuiz' : return { ...state, status: 'active', secondsRemaining: state.questions.length * SECS_PER_QUESTION}
         case 'newAnswer' : 
-            const currentQuestion = state.questions.at(state.index)
+            { const currentQuestion = state.questions.at(state.index)
             return { ...state, answer: action.payload, points: action.payload === currentQuestion.correctOption ? 
                 state.points + currentQuestion.points : state.points
-            }
+            } }
         case 'nextQuestion' : return {...state, index : state.index + 1, answer : null}
         case 'finish' : 
             return {...state, status: 'finished', highscore: state.points > state.highscore ? state.points : state.highscore}
