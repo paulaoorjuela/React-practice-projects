@@ -1,10 +1,10 @@
 import "./index.css";
-import Slot from "./Slot";
-import ColorGrid from "./ColorGrid";
+// import Slot from "./Slot";
+// import ColorGrid from "./ColorGrid";
 import ScoreKeeper from "./ScoreKeeper";
 
 function App() {
-  const options = ["🐵", "🐱", "🦋", "🐻"];
+  // const options = ["🐵", "🐱", "🦋", "🐻"];
   const colors = [
     "#FFFFFF",
     "#C0C0C0",

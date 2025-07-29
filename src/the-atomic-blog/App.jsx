@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { faker } from "@faker-js/faker";
 import "./style.css";
 import { PostProvider, usePosts } from "./PostProvider";
-import Test from "./Test";
+// import Test from "./Test";
 
 function createRandomPost() {
   return {

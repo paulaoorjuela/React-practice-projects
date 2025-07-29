@@ -14,7 +14,9 @@ import { QuizProvider } from "./react-quiz-context/context/QuizContext.jsx"; {/*
 // import App from './react-quiz/App.jsx'
 // import App from "./react-quiz-context/App.jsx";
 // import App from './useReducer-bank/App.jsx'
-import App from './the-atomic-blog/App.jsx'
+// import App from './the-atomic-blog/App.jsx'
+import App from './workout-timer/App.jsx'
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
