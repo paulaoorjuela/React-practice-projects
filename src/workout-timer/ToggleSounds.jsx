@@ -1,3 +1,6 @@
+import { memo } from "react";
+
+/* eslint-disable react/prop-types */
 function ToggleSounds({ allowSound, setAllowSound }) {
   return (
     <button
@@ -5,8 +8,8 @@ function ToggleSounds({ allowSound, setAllowSound }) {
       onClick={() => setAllowSound((allow) => !allow)}
     >
       {allowSound ? "🔈" : "🔇"}
-    </button>
-  );
+    </button>  
+    );
 }
 
-export default ToggleSounds;
+export default memo(ToggleSounds);
