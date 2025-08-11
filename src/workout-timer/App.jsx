@@ -36,7 +36,7 @@ function App() {
       },
       {
         name: "Legs only",
-        numExercises: 4,
+        numExercises: 5,
       },
       {
         name: "Core only",
