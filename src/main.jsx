@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QuizProvider } from "./react-quiz-context/context/QuizContext.jsx"; {/* Just for react-quiz-context */}
+import "./redux-intro/store.js"; {/* Just for redux-intro */}
 
 // import App from './basics/App.jsx'
 // import App from './pizza-menu/App.jsx'
