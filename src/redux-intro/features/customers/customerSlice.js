@@ -1,12 +1,12 @@
-const initialStateCostumer = {
+const initialStateCustumer = {
     fullName : "",
     nationalID : "",
     createdAt: ""
 }
 
-export default function costumerReducer(state = initialStateCostumer, action){
+export default function custumerReducer(state = initialStateCustumer, action){
     switch(action.type){
-        case "costumer/createCostumer":
+        case "custumer/createCustumer":
             return {...state, fullName: action.payload.fullName, nationalID: action.payload.nationalID, createdAt: action.payload.createdAt}
         case "account/updateName":
             return {...state, fullName: action.payload}
@@ -14,13 +14,13 @@ export default function costumerReducer(state = initialStateCostumer, action){
     }
 }
 
-export function createCostumer(fullName, nationalID){
-    return {type: 'costumer/createCostumer', payload: {fullName, nationalID, createdAt: new Date().toISOString()}}
+export function createCustumer(fullName, nationalID){
+    return {type: 'custumer/createCustumer', payload: {fullName, nationalID, createdAt: new Date().toISOString()}}
 }
 
 export function updateName(fullName){
     return {type: 'account/updateName', payload: fullName}
 }
 
-// store.dispatch(createCostumer("Paula", "0987654321"))
+// store.dispatch(createCustumer("Paula", "0987654321"))
 // console.log(store.getState());

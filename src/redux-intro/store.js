@@ -1,11 +1,11 @@
 import { combineReducers, legacy_createStore as createStore } from 'redux';
 import accountReducer from './features/accounts/accountSlice'
-import costumerReducer from './features/costumers/costumerSlice'
+import customerReducer from './features/customers/customerSlice'
 
 
 const rootReducer = combineReducers({
     account : accountReducer,
-    costumer : costumerReducer
+    customer : customerReducer
 })
 
 const store = createStore(rootReducer)

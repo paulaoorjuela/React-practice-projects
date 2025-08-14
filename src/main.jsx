@@ -1,10 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { QuizProvider } from "./react-quiz-context/context/QuizContext.jsx"; {/* Just for react-quiz-context */}
+// import { QuizProvider } from "./react-quiz-context/context/QuizContext.jsx"; {/* Just for react-quiz-context */}
+import { Provider } from "react-redux"; {/* Just for redux-intro */}
 import store from "./redux-intro/store.js"; {/* Just for redux-intro */}
-store.dispatch({type: 'account/deposit', payload: 250})
-console.log(store.getState());
-
 
 // import App from './basics/App.jsx'
 // import App from './pizza-menu/App.jsx'
@@ -25,8 +23,14 @@ import App from './redux-intro/App.jsx'
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <QuizProvider> {/* Just for react-quiz-context */}
+    {/* <QuizProvider> {/* Just for react-quiz-context */}
+
+    <Provider store={store}> {/* Just for redux-intro */}
+
       <App />
-    </QuizProvider> {/* Just for react-quiz-context */}
+
+    </Provider> {/* Just for redux-intro */}
+
+    {/* </QuizProvider> {/* Just for react-quiz-context */}
   </StrictMode>
 );
