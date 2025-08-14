@@ -1,7 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { QuizProvider } from "./react-quiz-context/context/QuizContext.jsx"; {/* Just for react-quiz-context */}
-import "./redux-intro/store.js"; {/* Just for redux-intro */}
+import store from "./redux-intro/store.js"; {/* Just for redux-intro */}
+store.dispatch({type: 'account/deposit', payload: 250})
+console.log(store.getState());
+
 
 // import App from './basics/App.jsx'
 // import App from './pizza-menu/App.jsx'
@@ -18,7 +21,6 @@ import "./redux-intro/store.js"; {/* Just for redux-intro */}
 // import App from './the-atomic-blog/App.jsx'
 // import App from './workout-timer/App.jsx'
 import App from './redux-intro/App.jsx'
-
 
 
 createRoot(document.getElementById("root")).render(
