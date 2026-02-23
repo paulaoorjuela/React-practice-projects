@@ -8,32 +8,37 @@ function AccountOperations() {
   const [loanAmount, setLoanAmount] = useState("");
   const [loanPurpose, setLoanPurpose] = useState("");
   const [currency, setCurrency] = useState("USD");
-  const dispatch = useDispatch()
-  const {loan: currentLoan, loanPurpose: currentLoanPurpose, balance} = useSelector((store)=> store.account)
+  const dispatch = useDispatch();
+  const {
+    loan: currentLoan,
+    loanPurpose: currentLoanPurpose,
+    balance,
+    isLoading,
+  } = useSelector((store) => store.account);
 
   console.log(balance);
-  
 
   function handleDeposit() {
-    if (!depositAmount) return
-    dispatch(deposit(depositAmount))
-    setDepositAmount('')
+    if (!depositAmount) return;
+    dispatch(deposit(depositAmount, currency));
+    setDepositAmount("");
+    setCurrency("");
   }
 
   function handleWithdrawal() {
-    if(!withdrawalAmount) return
-    dispatch(withdraw(withdrawalAmount))
-    setDepositAmount('')
+    if (!withdrawalAmount) return;
+    dispatch(withdraw(withdrawalAmount));
+    setDepositAmount("");
   }
 
   function handleRequestLoan() {
-    if(!loanAmount || !loanPurpose) return
-    dispatch(requestLoan(loanAmount, loanPurpose))
-    setDepositAmount('')
+    if (!loanAmount || !loanPurpose) return;
+    dispatch(requestLoan(loanAmount, loanPurpose));
+    setDepositAmount("");
   }
 
   function handlePayLoan() {
-    dispatch(payLoan())
+    dispatch(payLoan());
   }
 
   return (
@@ -56,7 +61,7 @@ function AccountOperations() {
             <option value="GBP">British Pound</option>
           </select>
 
-          <button onClick={handleDeposit}>Deposit {depositAmount}</button>
+          <button onClick={handleDeposit} disabled={isLoading}>{isLoading ? 'Converting...' : `Deposit ${depositAmount}`}</button>
         </div>
 
         <div>
@@ -89,7 +94,9 @@ function AccountOperations() {
 
         {currentLoan > 0 && (
           <div>
-            <span>Pay back ${currentLoan} ({currentLoanPurpose})</span>
+            <span>
+              Pay back ${currentLoan} ({currentLoanPurpose})
+            </span>
             <button onClick={handlePayLoan}>Pay loan</button>
           </div>
         )}
